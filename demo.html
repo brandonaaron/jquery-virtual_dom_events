@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <title>Virtual DOM Events Demo</title>
+        <style type="text/css" media="screen">
+            body { font: 12px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif; }
+                div.test { float: left; margin: 10px; border: 1px solid #000; width: 200px; }
+                    div.test h2 { margin: 0; padding: 2px 5px; border-bottom: 1px solid #000; background: #ccc; font-size: 16px; }
+                    div.test textarea { width: 190px; border: 0; _margin: 0 -10px; font: 12px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif; }
+                    div.test .testNode { padding: 2px 5px; height: 75px; border-bottom: 1px solid #000; background: #eee; }
+                    div.test h3 { margin: 0; padding: 2px 5px; border-bottom: 1px solid #000; background: #ccc; font-size: 14px; }
+                    div.test div.testLog { margin: 0; padding: 2px 5px; height: 75px; background: #eee; overflow: auto; }
+                        div.test div.testLog p { margin: 0; padding: 0; font-size: 11px; }
+        </style>
+        <script src="http://code.jquery.com/jquery-1.4.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.mouserest.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.mouseremainover.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.mouseremaindown.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.mouseremainup.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.mouseremainout.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.keyremaindown.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.keyremainup.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.remainfocused.js" type="text/javascript" charset="utf-8"></script>
+        <script src="jquery.remainblurred.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(function() {
+                
+                $('#mouserestTest')
+                    .bind('mouserest', function(event) {
+                        log('mouserestLog', 'mouserest 500ms');
+                    })
+                    .bind('mouserest', { delay: 1000 }, function(event) {
+                        log('mouserestLog', 'mouserest 1000ms');
+                    })
+                    .bind('mouserest', { delay: 1500 }, function(event) {
+                        log('mouserestLog', 'mouserest 1500ms');
+                    })
+                    .bind('mouserest', { delay: 2000 }, function(event) {
+                        log('mouserestLog', 'mouserest 2000ms');
+                    });
+                
+                $('#mouseremainoverTest')
+                    .bind('mouseremainover', function(event) {
+                        log('mouseremainoverLog', 'mouseremainover 500ms');
+                    })
+                    .bind('mouseremainover', { delay: 1000 }, function(event) {
+                        log('mouseremainoverLog', 'mouseremainover 1000ms');
+                    })
+                    .bind('mouseremainover', { delay: 1500 }, function(event) {
+                        log('mouseremainoverLog', 'mouseremainover 1500ms');
+                    })
+                    .bind('mouseremainover', { delay: 2000 }, function(event) {
+                        log('mouseremainoverLog', 'mouseremainover 2000ms');
+                    });
+                
+                $('#mouseremainupTest')
+                    .bind('mouseremainup', function(event) {
+                        log('mouseremainupLog', 'mouseremainup 500ms');
+                    })
+                    .bind('mouseremainup', { delay: 1000 }, function(event) {
+                        log('mouseremainupLog', 'mouseremainup 1000ms');
+                    })
+                    .bind('mouseremainup', { delay: 1500 }, function(event) {
+                        log('mouseremainupLog', 'mouseremainup 1500ms');
+                    })
+                    .bind('mouseremainup', { delay: 2000 }, function(event) {
+                        log('mouseremainupLog', 'mouseremainup 2000ms');
+                    });
+                
+                $('#mouseremaindownTest')
+                    .bind('mouseremaindown', function(event) {
+                        log('mouseremaindownLog', 'mouseremaindown 500ms');
+                    })
+                    .bind('mouseremaindown', { delay: 1000 }, function(event) {
+                        log('mouseremaindownLog', 'mouseremaindown 1000ms');
+                    })
+                    .bind('mouseremaindown', { delay: 1500 }, function(event) {
+                        log('mouseremaindownLog', 'mouseremaindown 1500ms');
+                    })
+                    .bind('mouseremaindown', { delay: 2000 }, function(event) {
+                        log('mouseremaindownLog', 'mouseremaindown 2000ms');
+                    });
+                
+                $('#mouseremainoutTest')
+                    .bind('mouseremainout', function(event) {
+                        log('mouseremainoutLog', 'mouseremainout 500ms');
+                    })
+                    .bind('mouseremainout', { delay: 1000 }, function(event) {
+                        log('mouseremainoutLog', 'mouseremainout 1000ms');
+                    })
+                    .bind('mouseremainout', { delay: 1500 }, function(event) {
+                        log('mouseremainoutLog', 'mouseremainout 1500ms');
+                    })
+                    .bind('mouseremainout', { delay: 2000 }, function(event) {
+                        log('mouseremainoutLog', 'mouseremainout 2000ms');
+                    });
+                
+                $('#keyremaindownTest')
+                    .bind('keyremaindown', function(event) {
+                        log('keyremaindownLog', 'keyremaindown 500ms');
+                    })
+                    .bind('keyremaindown', { delay: 1000 }, function(event) {
+                        log('keyremaindownLog', 'keyremaindown 1000ms');
+                    })
+                    .bind('keyremaindown', { delay: 1500 }, function(event) {
+                        log('keyremaindownLog', 'keyremaindown 1500ms');
+                    })
+                    .bind('keyremaindown', { delay: 2000 }, function(event) {
+                        log('keyremaindownLog', 'keyremaindown 2000ms');
+                    });
+                
+                $('#keyremainupTest')
+                    .bind('keyremainup', function(event) {
+                        log('keyremainupLog', 'keyremainup 500ms');
+                    })
+                    .bind('keyremainup', { delay: 1000 }, function(event) {
+                        log('keyremainupLog', 'keyremainup 1000ms');
+                    })
+                    .bind('keyremainup', { delay: 1500 }, function(event) {
+                        log('keyremainupLog', 'keyremainup 1500ms');
+                    })
+                    .bind('keyremainup', { delay: 2000 }, function(event) {
+                        log('keyremainupLog', 'keyremainup 2000ms');
+                    });
+                
+                $('#remainfocusedTest')
+                    .bind('remainfocused', function(event) {
+                        log('remainfocusedLog', 'remainfocused 500ms');
+                    })
+                    .bind('remainfocused', { delay: 1000 }, function(event) {
+                        log('remainfocusedLog', 'remainfocused 1000ms');
+                    })
+                    .bind('remainfocused', { delay: 1500 }, function(event) {
+                        log('remainfocusedLog', 'remainfocused 1500ms');
+                    })
+                    .bind('remainfocused', { delay: 2000 }, function(event) {
+                        log('remainfocusedLog', 'remainfocused 2000ms');
+                    });
+                
+                $('#remainblurredTest')
+                    .bind('remainblurred', function(event) {
+                        log('remainblurredLog', 'remainblurred 500ms');
+                    })
+                    .bind('remainblurred', { delay: 1000 }, function(event) {
+                        log('remainblurredLog', 'remainblurred 1000ms');
+                    })
+                    .bind('remainblurred', { delay: 1500 }, function(event) {
+                        log('remainblurredLog', 'remainblurred 1500ms');
+                    })
+                    .bind('remainblurred', { delay: 2000 }, function(event) {
+                        log('remainblurredLog', 'remainblurred 2000ms');
+                    });
+            });
+            
+            function log(id, msg) {
+                $('#'+id)
+                    .append('<p>' + msg + '</p>')
+                    .scrollTop(999999);
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Virtual DOM Events Demo</h1>
+        <div class="test"> 
+            <h2>mouserest</h2> 
+            <div id="mouserestTest" class="testNode">mouse over me and then rest the mouse for more than half a second</div> 
+            <h3>log</h3> 
+            <div id="mouserestLog" class="testLog"></div>
+        </div> 
+        <div class="test"> 
+            <h2>mouseremainover</h2> 
+            <div id="mouseremainoverTest" class="testNode">mouse over me for more than half a second (mouse can keep moving)</div> 
+            <h3>log</h3> 
+            <div id="mouseremainoverLog" class="testLog"></div>
+        </div> 
+        <div class="test"> 
+            <h2>mouseremaindown</h2> 
+            <div id="mouseremaindownTest" class="testNode">hold mouse down on me for more than half a second (mouse may move)</div> 
+            <h3>log</h3> 
+            <div id="mouseremaindownLog" class="testLog"></div>
+        </div> 
+        <div class="test"> 
+            <h2>mouseremainup</h2> 
+            <div id="mouseremainupTest" class="testNode">mouse down on me, then release mouse and keep mouse up for more than half a second</div> 
+            <h3>log</h3> 
+            <div id="mouseremainupLog" class="testLog"></div>
+        </div> 
+        <div class="test"> 
+            <h2>mouseremainout</h2> 
+            <div id="mouseremainoutTest" class="testNode">first mouse over me, then mouse out and keep mouse out for more than half a second</div> 
+            <h3>log</h3> 
+            <div id="mouseremainoutLog" class="testLog"></div>
+        </div> 
+        <div class="test"> 
+            <h2>keyremaindown</h2> 
+            <textarea id="keyremaindownTest" class="testNode">first click on me, then press and hold a key down for m                              ore than half a second</textarea> 
+            <h3>log</h3> 
+            <div id="keyremaindownLog" class="testLog"></div>
+        </div> 
+        <div class="test"> 
+            <h2>keyremainup</h2> 
+            <textarea id="keyremainupTest" class="testNode">click on me, press and release a key, and don't press another for more than half a second</textarea> 
+            <h3>log</h3> 
+            <div id="keyremainupLog" class="testLog"></div>
+        </div>  
+        <div class="test"> 
+            <h2>remainfocused</h2> 
+            <textarea id="remainfocusedTest" class="testNode">click on me, and keep this textarea element focused for more than half a second</textarea> 
+            <h3>log</h3> 
+            <div id="remainfocusedLog" class="testLog"></div>
+        </div> 
+        <div class="test"> 
+            <h2>remainblurred</h2> 
+            <textarea id="remainblurredTest" class="testNode">first click on me, then click outside and keep me blurred for more than half a second</textarea> 
+            <h3>log</h3> 
+            <div id="remainblurredLog" class="testLog"></div>
+        </div> 
+    </body>
+</html>
