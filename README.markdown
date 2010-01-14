@@ -35,7 +35,7 @@ Here is how to use any of the events:
 
 ## Demo
 
-In the source tree there is a demo.html which illustrates each of the events with different delays.
+In the source tree there is a demo.html which illustrates each of the events with different delays. I've also got a demo up on my site here: [http://brandonaaron.net/code/virtualdomevents/demos](http://brandonaaron.net/code/virtualdomevents/demos).
 
 ## License
 
